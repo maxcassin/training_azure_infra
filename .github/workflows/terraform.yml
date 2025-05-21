@@ -98,3 +98,8 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -input=false plan.out
+
+    - name: Download the yaml to stock it
+      uses: actions/download-artifact@v4
+      with:
+        name: terraform-yaml
